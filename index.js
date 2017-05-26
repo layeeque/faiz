@@ -13,8 +13,17 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    var endpoint = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=NISTzgt0sTmuTa0LWjF-OQ,UCNISTzgt0sTmuTa0LWjF-OQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
+            var body = ""
+            https.get(endpoint, (response) => {
+              response.on('data', (chunk) => { body += chunk })
+              response.on('end', () => {
+                var data = JSON.parse(body)
+                var subscriberCount = data.items[0].statistics.subscriberCount
+    
+    
     return res.json({
-        speech: "you have entered "+speech,
+        speech: "you hv entered "+speech+ "subscriber count is"+subscriberCount,
         displayText: "you have entered "+speech,
         source: 'webhook-echo-sample'
     });
