@@ -44,7 +44,7 @@ restService.post('/echo', function(req, res) {
               response.on('data', (chunk) => { body += chunk })
               response.on('end', () => {
                 var data = JSON.parse(body)
-                  var viewCount = data.items[0].statistics.viewCount
+                   viewCount = data.items[0].statistics.viewCount
                 
               })
             })
