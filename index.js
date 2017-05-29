@@ -11,10 +11,6 @@ restService.use(bodyParser.urlencoded({
 }));
 
 restService.use(bodyParser.json());
-
-
-
-
 restService.post('/echo', function(req, res) {
    // var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
     //console.log(req.body);
@@ -33,9 +29,6 @@ restService.post('/echo', function(req, res) {
                 
               })
             })
-   
-    
-    
     return res.json({
         speech: "Subscriber count is ".concat(subscriberCount),
         displayText: "Subscriber count is ".concat(subscriberCount),
@@ -43,10 +36,8 @@ restService.post('/echo', function(req, res) {
     });
 }
 
-                 else
-                 {
-
-
+ else
+{
      var endpoint = "https://www.googleapis.com/youtube/v3/videos?part=statistics&id=BwEzPpdQCVQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
