@@ -47,7 +47,7 @@ restService.post('/echo', function(req, res) {
                  {
 
 
-     var endpoint = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=NISTzgt0sTmuTa0LWjF-OQ,UCNISTzgt0sTmuTa0LWjF-OQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
+     var endpoint = "https://www.googleapis.com/youtube/v3/videos?part=statistics&id=BwEzPpdQCVQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
               response.on('data', (chunk) => { body += chunk })
