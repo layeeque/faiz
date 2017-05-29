@@ -33,8 +33,8 @@ restService.post('/echo', function(req, res) {
     
     
     return res.json({
-        speech: "enter "+speech+subscriberCount,
-        displayText: "you have entered "+speech,
+        speech: "your subscriber count is ".concat(subscriberCount),
+        displayText: "your subscriber count is ".concat(subscriberCount),
         source: 'webhook-echo-sample'
     });
 });
