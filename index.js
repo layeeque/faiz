@@ -16,8 +16,13 @@ restService.use(bodyParser.json());
 
 
 restService.post('/echo', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    console.log(req.body);
+   // var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    //console.log(req.body);
+    
+     var action = req.body.result.action;
+      if(action=="subs")
+      {
+    
      var endpoint = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=NISTzgt0sTmuTa0LWjF-OQ,UCNISTzgt0sTmuTa0LWjF-OQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
@@ -37,11 +42,11 @@ restService.post('/echo', function(req, res) {
         source: 'webhook-echo-sample'
     });
 });
+}
+                 else
+                 {
 
 
-restService.post('/view', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    console.log(req.body);
      var endpoint = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=NISTzgt0sTmuTa0LWjF-OQ,UCNISTzgt0sTmuTa0LWjF-OQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
@@ -61,6 +66,7 @@ restService.post('/view', function(req, res) {
         source: 'webhook-echo-sample'
     });
 });
+}
 
 restService.post('/slack-test', function(req, res) {
 
