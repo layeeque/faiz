@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 var https = require('https');
 const restService = express();
-var subscriberCount;
+
 
 restService.use(bodyParser.urlencoded({
     extended: true
@@ -18,7 +18,7 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    console.log(req.body);
+   var subscriberCount;
      var endpoint = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=NISTzgt0sTmuTa0LWjF-OQ,UCNISTzgt0sTmuTa0LWjF-OQ&key=AIzaSyAY5ItJuC8JUWlPPoUaeYvNyDAZRf1Jl44" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
@@ -33,7 +33,7 @@ restService.post('/echo', function(req, res) {
     
     
     return res.json({
-        speech: "you hv entered "+speech+subscriberCount,
+        speech: "enter "+speech+subscriberCount,
         displayText: "you have entered "+speech,
         source: 'webhook-echo-sample'
     });
