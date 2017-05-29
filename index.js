@@ -52,8 +52,8 @@ restService.post('/echo', function(req, res) {
     
     
     return res.json({
-        speech: "viewCount count is ".concat(viewCount),
-        displayText: "viewCount count is ".concat(viewCount),
+        speech: "viewCount count is  ${viewCount}".concat(viewCount),
+        displayText: "viewCount count is ${viewCount}".concat(viewCount),
         source: 'webhook-echo-sample'
     });
 }
